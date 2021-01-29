@@ -21,6 +21,8 @@ import { StudentsComponent } from './students/students.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { ChatAppComponent } from './chat-app/chat-app.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { FileManagerComponent } from './file-manager/file-manager.component';
     StudentsComponent,
     DepartmentsComponent,
     ChatAppComponent,
-    FileManagerComponent
+    FileManagerComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

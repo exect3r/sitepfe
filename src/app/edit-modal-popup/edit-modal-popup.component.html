@@ -1,0 +1,36 @@
+<div class="modal fade" id="eventEditModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Event</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Event Name</label>
+                            <input class="form-control" name="event-name" type="text" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Event Type</label>
+                            <select name="event-bg" class="form-control">
+                                <option value="success">Success</option>
+                                <option value="danger">Danger</option>
+                                <option value="info">Info</option>
+                                <option value="primary">Primary</option>
+                                <option value="warning">Warning</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn mr-auto delete-btn btn-danger">Delete</button>
+                <button class="btn save-btn btn-success">Save</button>
+                <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

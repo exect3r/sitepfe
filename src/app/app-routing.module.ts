@@ -11,6 +11,7 @@ import { FileManagerComponent } from './file-manager/file-manager.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,8 +30,10 @@ const routes: Routes = [
       { path: "calender", component: CalenderComponent },
       { path: "app-filemanager", component: FileManagerComponent },
       { path: "staff", component: StaffComponent }
-    ]},
-  { path: "**", component: HomeComponent }
+    ]
+  },
+  { path: "404", component: NotFoundComponent },
+  { path: "**", redirectTo: "/404" }
 ];
 
 @NgModule({

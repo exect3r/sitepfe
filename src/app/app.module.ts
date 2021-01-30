@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-modal-popup.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EditTaskModalPopupComponent
   ],
   imports: [
     BrowserModule,

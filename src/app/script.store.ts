@@ -15,5 +15,7 @@ export const ScriptStore: Scripts[] = [
     { name: "bootstrap", src: "assets/plugins/bootstrap/js/bootstrap.js" },
     { name: "jquery.ui", src: "assets/plugins/fullcalendar/jqueryui.min.js" },
     { name: "moment", src: "assets/plugins/fullcalendar/moment.min.js" },
-    { name: "core", src: "assets/js/core.js"}
+    { name: "core", src: "assets/js/core.js" },
+    { name: "knobjs", src: "assets/js/chart/knobjs.js" },
+    { name: "nestable", src: "assets/js/page/sortable-nestable.js" },
 ];

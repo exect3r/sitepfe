@@ -1,7 +1,7 @@
 $(function() {
     "use strict";
     
-    $('.dd').nestable();
+    $('.dd').nestable({ maxDepth: 1 });
 
     $('.dd').on('change', function () {
         var $this = $(this);

@@ -22,6 +22,9 @@ import { DepartmentsComponent } from './departments/departments.component';
 import { CalenderComponent } from './calender/calender.component';
 import { ChatAppComponent } from './chat-app/chat-app.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { FileManagerComponent } from './file-manager/file-manager.component';
     DepartmentsComponent,
     CalenderComponent,
     ChatAppComponent,
-    FileManagerComponent
+    FileManagerComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

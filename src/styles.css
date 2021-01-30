@@ -5,4 +5,7 @@
 @import "assets/plugins/font-awesome/css/font-awesome.css";
 @import "assets/css/default.css";
 
-@import "assets/plugins/fullcalendar/fullcalendar.css"
+@import "assets/plugins/fullcalendar/fullcalendar.css";
+
+@import "assets/plugins/nestable/jquery-nestable.css";
+@import "assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"

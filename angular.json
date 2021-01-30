@@ -38,7 +38,11 @@
               "src/assets/plugins/summernote/dist/summernote.js",
               "src/assets/js/form/dropify.js",
               "src/assets/js/page/summernote.js",
-              "src/assets/js/core.js"
+              "src/assets/js/core.js",
+              "src/assets/bundles/knobjs.bundle.js",
+              "src/assets/bundles/nestable.bundle.js",
+              "src/assets/js/page/sortable-nestable.js",
+              "src/assets/js/chart/knobjs.js"
             ]
           },
           "configurations": {

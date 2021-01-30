@@ -3,4 +3,6 @@
 @import "assets/css/style.min.css";
 
 @import "assets/plugins/font-awesome/css/font-awesome.css";
-@import "assets/css/theme1.css";
+@import "assets/css/default.css";
+
+@import "assets/plugins/fullcalendar/fullcalendar.css"

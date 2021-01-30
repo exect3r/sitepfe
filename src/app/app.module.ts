@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StaffComponent } from './staff/staff.component';
 import { StudentsComponent } from './students/students.component';
 import { DepartmentsComponent } from './departments/departments.component';
+import { CalenderComponent } from './calender/calender.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { DepartmentsComponent } from './departments/departments.component';
     DashboardComponent,
     StaffComponent,
     StudentsComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,

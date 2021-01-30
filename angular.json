@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "sitepfe"
+  "defaultProject": "sitepfe",
+  "cli": {
+    "analytics": "efafde02-204c-4289-9520-2d6ed71233a1"
+  }
 }

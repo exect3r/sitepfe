@@ -20,6 +20,8 @@ import { StaffComponent } from './staff/staff.component';
 import { StudentsComponent } from './students/students.component';
 import { DepartmentsComponent } from './departments/departments.component';
 import { CalenderComponent } from './calender/calender.component';
+import { ChatAppComponent } from './chat-app/chat-app.component';
+import { FileManagerComponent } from './file-manager/file-manager.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { CalenderComponent } from './calender/calender.component';
     StudentsComponent,
     DepartmentsComponent,
     CalenderComponent
+    ChatAppComponent,
+    FileManagerComponent
   ],
   imports: [
     BrowserModule,

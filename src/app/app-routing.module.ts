@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
     children: [
       { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
       { path: "dashboard", component: DashboardComponent },
+      { path: "dashboard-professor", component: ProfessorDashboardComponent },
       { path: "professors", component: ProfessorComponent },
       { path: "staff", component: StaffComponent },
       { path: "students", component: StudentsComponent },

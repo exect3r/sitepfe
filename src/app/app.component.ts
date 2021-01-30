@@ -7,7 +7,7 @@ import { ScriptService } from './script.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'sitepfe';
+  
 
   constructor(private script: ScriptService) { }
 

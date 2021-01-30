@@ -9,34 +9,34 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Name</label>
-                            <input class="form-control" name="task-name" type="text" value="{{ task.name }}" />
+                            <input class="form-control" name="task-name" type="text" [value]="task.name" (change)="task.name = $event.target.value" />
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Description</label>
-                            <input class="form-control" name="task-desc" type="text" value="{{ task.description }}" />
+                            <input class="form-control" name="task-desc" type="text" [value]="task.description" (change)="task.description = $event.target.value" />
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Start Date</label>
-                            <input class="form-control" name="task-start" type="date" value="{{ task.dateStart | date:'y-M-d' }}">
+                            <input class="form-control" name="task-start" type="date" [value]="task.dateStart | date:'y-MM-dd'" (change)="onStartDateChanged($event.target.value)">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>End Dates</label>
-                            <input class="form-control" name="task-end" type="date" value="{{ task.dateEnd | date:'y-M-d' }}">
+                            <label>End Date</label>
+                            <input class="form-control" name="task-end" type="date" [value]="task.dateEnd | date:'y-MM-dd'" (change)="onEndDateChanged($event.target.value)">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Status</label>
-                            <select name="task-status" class="form-control">
-                                <option value="success">Planned</option>
-                                <option value="danger">Completed</option>
-                                <option value="info">In Progress</option>
+                            <select name="task-status" class="form-control" (change)="onValueSelected($event.target.value)">
+                                <option [selected]="task.status == 'Planned' ? 'true' : 'false'" value="Planned">Planned</option>
+                                <option [selected]="task.status == 'Completed' ? 'true' : 'false'" value="Completed">Completed</option>
+                                <option [selected]="task.status == 'In Progress' ? 'true' : 'false'" value="In Progress">In Progress</option>
                             </select>
                         </div>
                     </div>
@@ -52,8 +52,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn mr-auto delete-btn btn-danger">Delete</button>
-                <button class="btn save-btn btn-success">Save</button>
-                <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button class="btn save-btn btn-success" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

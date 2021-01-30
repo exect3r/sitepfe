@@ -15,4 +15,16 @@ export class EditTaskModalPopupComponent implements OnInit {
   ngOnInit(): void {
     this.task = new Task("none", "none", new Date(), new Date(), "none", 0);
   }
+
+  onValueSelected(value: string): void {
+    this.task.status = value;
+  }
+
+  onStartDateChanged(date: string): void {
+    this.task.dateStart = new Date(date);
+  }
+
+  onEndDateChanged(date: string): void {
+    this.task.dateEnd = new Date(date);
+  }
 }

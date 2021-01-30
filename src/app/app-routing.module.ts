@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CalenderComponent } from './calender/calender.component';
 import { ChatAppComponent } from './chat-app/chat-app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DepartmentsComponent } from './departments/departments.component';
@@ -13,8 +14,9 @@ const routes: Routes = [
   { path: "staff", component: StaffComponent },
   { path: "students", component: StudentsComponent },
   { path: "departments", component: DepartmentsComponent },
+  { path: "calender", component: CalenderComponent },
+  { path: "staff", component: StaffComponent },
   { path: "app-chat", component: ChatAppComponent },
-  { path: "events", component: StaffComponent },
   { path: "app-filemanager", component: FileManagerComponent },
   { path: "staff", component: StaffComponent },
   { path: "staff", component: StaffComponent },

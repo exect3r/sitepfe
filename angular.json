@@ -26,7 +26,19 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/plugins/jquery/jquery.min.js",
+              "src/assets/bundles/lib.vendor.bundle.js",
+              "src/assets/plugins/bootstrap/js/bootstrap.js",
+              "src/assets/plugins/fullcalendar/moment.min.js",
+              "src/assets/plugins/fullcalendar/jqueryui.min.js",
+              "src/assets/plugins/fullcalendar/fullcalendar.js",
+              "src/assets/js/page/calendar.js",
+              "src/assets/plugins/dropify/js/dropify.min.js",
+              "src/assets/plugins/summernote/dist/summernote.js",
+              "src/assets/js/form/dropify.js",
+              "src/assets/js/page/summernote.js"
+            ]
           },
           "configurations": {
             "production": {

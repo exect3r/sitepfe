@@ -13,8 +13,8 @@ export class ProfessorComponent implements OnInit {
 
   ngOnInit(): void {
     this.professors = [
-      new Professor(0,'robanna','robanna@insat.com',123456,'info','fulltime'),
-      new Professor(1,'sellaouti','sellaouti@insat.com',123,'info','associate')
+      new Professor(0,'robanna','robanna@insat.com',123456,'info','fulltime',[]),
+      new Professor(1,'sellaouti','sellaouti@insat.com',123,'info','associate',[])
     ]
   }
 

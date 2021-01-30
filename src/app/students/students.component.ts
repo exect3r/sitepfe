@@ -12,8 +12,8 @@ export class StudentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.students = [
-      new Student(1700513, 'kchaoubhim', 'gl', 'kesomlafaa@gmail.com', '2461235'),
-      new Student(1700512, 'padgekinami', 'gl', 'padge@gmail.com', '25481794')
+      new Student(1700513, 'kchaoubhim', 'gl', 'kesomlafaa@gmail.com', '2461235',[]),
+      new Student(1700512, 'padgekinami', 'gl', 'padge@gmail.com', '25481794',[])
     ]
   }
 

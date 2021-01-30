@@ -37,7 +37,8 @@
               "src/assets/plugins/dropify/js/dropify.min.js",
               "src/assets/plugins/summernote/dist/summernote.js",
               "src/assets/js/form/dropify.js",
-              "src/assets/js/page/summernote.js"
+              "src/assets/js/page/summernote.js",
+              "src/assets/js/core.js"
             ]
           },
           "configurations": {

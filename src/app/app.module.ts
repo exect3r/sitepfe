@@ -42,7 +42,7 @@ import { FileManagerComponent } from './file-manager/file-manager.component';
     StaffComponent,
     StudentsComponent,
     DepartmentsComponent,
-    CalenderComponent
+    CalenderComponent,
     ChatAppComponent,
     FileManagerComponent
   ],

@@ -26,6 +26,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { AdminProfessorComponent } from './Admin/admin-professor/admin-professor.component';
+import { AdminStudentComponent } from './Admin/admin-student/admin-student.component';
+import { AdminStaffComponent } from './Admin/admin-staff/admin-staff.component';
+import { AdminDepartmentsComponent } from './Admin/admin-departments/admin-departments.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,11 +58,17 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminDashboardComponent,
+    AdminProfessorComponent,
+    AdminStudentComponent,
+    AdminStaffComponent,
+    AdminDepartmentsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

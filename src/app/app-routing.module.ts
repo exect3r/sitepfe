@@ -12,6 +12,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { AdminProfessorComponent } from './Admin/admin-professor/admin-professor.component';
+import { AdminStudentComponent } from './Admin/admin-student/admin-student.component';
+import { AdminStaffComponent } from './Admin/admin-staff/admin-staff.component';
+import { AdminDepartmentsComponent } from './Admin/admin-departments/admin-departments.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -30,6 +35,18 @@ const routes: Routes = [
       { path: "calender", component: CalenderComponent },
       { path: "app-filemanager", component: FileManagerComponent },
       { path: "staff", component: StaffComponent }
+    ]
+  },
+  { path: "admin" ,
+    component: HomeComponent,
+    children: [
+      { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: "dashboard", component: AdminDashboardComponent },
+      { path: "professors", component: AdminProfessorComponent },
+      { path: "staff", component: AdminStaffComponent },
+      { path: "students", component:   AdminStudentComponent },
+      { path: "departments", component: AdminDepartmentsComponent },
+
     ]
   },
   { path: "404", component: NotFoundComponent },

@@ -27,6 +27,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
+import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-modal-popup.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ProfessorDashboardComponent } from './professor-dashboard/professor-das
     RegisterComponent,
     HomeComponent,
     NotFoundComponent,
-    ProfessorDashboardComponent
+    ProfessorDashboardComponent,
+    EditTaskModalPopupComponent
   ],
   imports: [
     BrowserModule,

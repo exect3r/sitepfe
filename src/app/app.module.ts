@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
 import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-modal-popup.component';
 import { FormsModule } from '@angular/forms';
 
@@ -55,6 +56,7 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     HomeComponent,
     NotFoundComponent,
+    ProfessorDashboardComponent,
     EditTaskModalPopupComponent
   ],
   imports: [

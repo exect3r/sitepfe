@@ -44,14 +44,14 @@
                         <div class="form-group">
                             <label>Progress</label>
                             <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                <input type="range" min="1" max="100" value="50" class="slider" (change)="task.progress = $event.target.value">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn mr-auto delete-btn btn-danger">Delete</button>
+                <button class="btn mr-auto delete-btn btn-danger" (click)="taskDelete.emit(task)" data-dismiss="modal">Delete</button>
                 <button class="btn save-btn btn-success" data-dismiss="modal">Close</button>
             </div>
         </div>

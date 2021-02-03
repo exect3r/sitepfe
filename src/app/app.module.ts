@@ -28,6 +28,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
 import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-modal-popup.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-m
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

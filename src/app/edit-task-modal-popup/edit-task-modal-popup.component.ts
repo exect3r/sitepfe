@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Task } from '../models/task';
 
 @Component({
@@ -10,6 +10,9 @@ export class EditTaskModalPopupComponent implements OnInit {
 
   @Input()
   task: Task
+
+  @Output() taskDelete: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {

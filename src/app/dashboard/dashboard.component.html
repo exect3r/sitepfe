@@ -224,56 +224,39 @@
                                     class="fe fe-x"></i></a>
                         </div>
                     </div>
-                    <form class="card-body">
+                    <form class="card-body" #taskForm="ngForm" (ngSubmit)="createNewTask()">
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Task no. <span class="text-danger">*</span></label>
+                            <label class="col-md-3 col-form-label">Task Title<span class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Job title <span class="text-danger">*</span></label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Select Team <span
-                                    class="text-danger">*</span></label>
-                            <div class="col-md-7">
-                                <select class="form-control show-tick">
-                                    <option>Select</option>
-                                    <option>John Smith</option>
-                                    <option>Claire Peters</option>
-                                    <option>Allen Collins</option>
-                                    <option>Cory Carter</option>
-                                    <option>Rochelle Barton</option>
-                                </select>
+                                <input name="task-name" ngModel #taskName="ngModel" type="text" required minlength="5" class="form-control" placeholder="Please type the task's name..." [value]="createdTask.name" (change)="createdTask.name = $event.target.value">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Description <span
                                     class="text-danger">*</span></label>
                             <div class="col-md-7">
-                                <textarea rows="4" class="form-control no-resize"
-                                    placeholder="Please type what you want..."></textarea>
+                                <textarea name="task-desc" ngModel #taskDesc="ngModel" rows="4" class="form-control no-resize" required minlength="5" 
+                                    placeholder="Please type what you want..." [value]="createdTask.description"
+                                    (change)="createdTask.description = $event.target.value"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-3 col-form-label">Range <span class="text-danger">*</span></label>
+                            <label class="col-md-3 col-form-label">Time Frame <span class="text-danger">*</span></label>
                             <div class="col-md-7">
                                 <div class="input-daterange input-group" data-provide="datepicker">
-                                    <input type="text" class="form-control" name="start">
-                                    <span class="input-group-addon"> to </span>
-                                    <input type="text" class="form-control" name="end">
+                                    <input class="form-control" name="task-end" type="date" [value]="createdTask.dateStart | date:'y-MM-dd'"
+                                        (change)="onStartDateChanged($event.target.value)">
+                                    <span class="form-control col-md-2"> to </span>
+                                    <input class="form-control" name="task-end" type="date" [value]="createdTask.dateEnd | date:'y-MM-dd'"
+                                        (change)="onEndDateChanged($event.target.value)">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label"></label>
-                            <div class="col-md-7">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="submit" class="btn btn-outline-secondary">Cancel</button>
+                            <div class="col-md-7 mt-1">
+                                <button type="submit" class="btn btn-primary" [disabled]="!taskForm.valid">Submit</button>
+                                <button type="button" class="btn btn-outline-secondary" (click)="resetTaskForm()">Cancel</button>
                             </div>
                         </div>
                     </form>
@@ -283,4 +266,4 @@
     </div>
 </div>
 
-<app-edit-task-modal-popup [task]="selectedTask"></app-edit-task-modal-popup>
+<app-edit-task-modal-popup [task]="selectedTask" (taskDelete)="deleteTask($event)"></app-edit-task-modal-popup>

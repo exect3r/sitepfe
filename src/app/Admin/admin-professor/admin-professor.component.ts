@@ -25,7 +25,7 @@ export class AdminProfessorComponent implements OnInit {
       (professors) => (this.professors = professors),
       (erreur) => {
         this.toaster.warning(
-          'Problème de connaxion à la base de données, les personnes sont fake'
+          'Problème de connaxion à la base de données, les profs sont fake'
         );
         this.professors = this.adminservice.getFProfessor();
       }

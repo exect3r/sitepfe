@@ -28,8 +28,17 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
 import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-modal-popup.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { AdminProfessorComponent } from './Admin/admin-professor/admin-professor.component';
+import { AdminStudentComponent } from './Admin/admin-student/admin-student.component';
+import { AdminStaffComponent } from './Admin/admin-staff/admin-staff.component';
+import { AdminDepartmentsComponent } from './Admin/admin-departments/admin-departments.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,12 +66,21 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NotFoundComponent,
     ProfessorDashboardComponent,
-    EditTaskModalPopupComponent
+    EditTaskModalPopupComponent,
+    AdminDashboardComponent,
+    AdminProfessorComponent,
+    AdminStudentComponent,
+    AdminStaffComponent,
+    AdminDepartmentsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,231 @@
+<div class="section-body">
+  <div class="container-fluid">
+      <div class="d-flex justify-content-between align-items-center ">
+          <div class="header-action">
+              <h1 class="page-title">Professors</h1>
+              <ol class="breadcrumb page-breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Ericsson</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Professors</li>
+              </ol>
+          </div>
+          <ul class="nav nav-tabs page-header-tab">
+              <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#pro-all">List View</a></li>
+              <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pro-grid">Grid View</a></li>
+              <li class="nav-item"><a class="nav-link"data-toggle="tab" href="#pro-add">Add</a></li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="section-body mt-4">
+  <div class="container-fluid">
+      <div class="tab-content">
+          <div class="tab-pane active" id="pro-all">
+              <div class="table-responsive">
+                  <table class="table table-hover table-vcenter table_custom text-nowrap spacing5 border-style mb-0">
+                      <thead>
+                          <tr>
+                              <th>#</th>
+                              <th>Name</th>
+                              <th>Number</th>
+                              <th>Designation</th>
+                              <th>Email</th>
+                              <th>Position</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let prof of professors">
+                              <td class="w60">
+                                  <div class="avatar avatar-pink" data-toggle="tooltip" data-placement="top" title=""
+                                      data-original-title="Avatar Name">
+                                      <span>{{prof.name.charAt(0)}}</span>
+                                  </div>
+                              </td>
+                              <td>
+                                  <div class="font-15">{{prof.name}}</div>
+                              </td>
+                              <td><span>{{prof.phone}}</span></td>
+                              <td><span class="text-muted">{{prof.department}}</span></td>
+                              <td>{{prof.email}}</td>
+                              <td><span class="tag tag-success">{{prof.position}}</span></td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+          <div class="tab-pane" id="pro-grid">
+              <div class="row">
+                  <div *ngFor="let prof of professors" class="col-xl-3 col-lg-4 col-md-6">
+                      <div class="card">
+                          <div class="card-body text-center">
+                              <img class="card-profile-img" src="../assets/images/sm/avatar1.jpg" alt="">
+                              <h5 class="mb-0">{{prof.name}}</h5>
+                              <span>{{prof.department}}</span>
+                              <div class="text-muted">{{prof.phone}}</div>
+                              <p class="mb-4 mt-3">{{prof.position}}</p>
+                              <button class="btn btn-primary btn-sm">Read More</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-pane" id="pro-add">
+              <form #formumaire="ngForm">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Basic Information</h3>
+                            <div class="card-options ">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row clearfix">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Date of Birth</label>
+                                        <input data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <label>Gender</label>
+                                    <select class="form-control show-tick">
+                                        <option value="">-- Gender --</option>
+                                        <option value="10">Male</option>
+                                        <option value="20">Female</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Department</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Position</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Enter Your Email</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Website URL</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group mt-2 mb-3">
+                                        <input type="file" class="dropify">
+                                        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group mt-3">
+                                        <label>Messages</label>
+                                        <textarea rows="4" class="form-control no-resize" placeholder="Please type what you want..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-outline-secondary">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Account Information</h3>
+                            <div class="card-options ">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>User Name</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Confirm Password</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-outline-secondary">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Account Information</h3>
+                            <div class="card-options ">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Facebook</label>
+                                <input type="text" class="form-control" placeholder="Facebook">
+                            </div>
+
+                            <div class="form-group">
+                                <label>LinkedIN</label>
+                                <input type="text" class="form-control" placeholder="LinkedIN ">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+          
+      </div>
+  </div>
+</div>
+
+<script src="../assets/js/core.js"></script>
+<script src="assets/js/form/dropify.js"></script>
+<script src="assets/js/page/summernote.js"></script>

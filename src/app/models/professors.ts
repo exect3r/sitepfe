@@ -5,9 +5,9 @@ export class Professor {
     phone : number; 
     department : string ;
     position : string;
-    studentIds : [];   
+    studentIds : string[];   
 
-    constructor(id,name,email,phone,department,position,studentsIds){
+    constructor(id,name,email,phone,department,position,studentsIds=[]){
         this.id = id;
         this.name = name;
         this.email = email;

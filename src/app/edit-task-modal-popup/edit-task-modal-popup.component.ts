@@ -17,7 +17,7 @@ export class EditTaskModalPopupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.task = new Task("", "none", "none", new Date(), new Date(), "none", 0);
+    this.task = new Task(null, "none", "none", new Date(), new Date(), "none", 0);
   }
 
   onValueSelected(value: string): void {

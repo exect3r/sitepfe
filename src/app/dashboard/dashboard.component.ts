@@ -1,7 +1,9 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Task } from '../models/task';
 import { ScriptService } from '../script.service';
+import { TasksService } from '../services/tasks/tasks.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,44 +11,21 @@ import { ScriptService } from '../script.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   taskList: Task[];
   selectedTask: Task;
   createdTask: Task;
 
-  constructor(private script: ScriptService, private router: Router) { }
+  constructor(private script: ScriptService, private router: Router, private viewportScroller: ViewportScroller, private tasksService: TasksService) { }
 
   ngOnInit(): void {
     this.script.load("nestable", "knobjs");
 
-    this.taskList = [
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-      new Task("New code Update on github", "It is a long established fact that a reader will be distracted...",
-        new Date(), new Date(), ["Planned", "Completed", "In Progress"][Math.floor(Math.random() * 3)], Math.random() * 100),
-    ];
+    this.taskList = [];
+    this.tasksService.getTasks().subscribe((v: Task[]) => {
+      v.forEach(task => this.taskList.push(new Task(task._id, task.name, task.description, new Date(task.dateStart), new Date(task.dateEnd), task.status, task.progress)));
+    });
 
-    this.createdTask = new Task("", "", new Date(), new Date(), "Planned", 0);
+    this.createdTask = new Task("", "", "", new Date(), new Date(), "Planned", 0);
   }
 
   getTaskByAction(status: string): Task[] {
@@ -64,7 +43,8 @@ export class DashboardComponent implements OnInit {
     this.selectedTask = task;
   }
 
-  deleteTask(task: any): void {
+  deleteTask(task: Task): void {
+    this.tasksService.deleteTask(task);
     this.taskList = this.taskList.filter(item => item != task);
   }
 
@@ -76,13 +56,18 @@ export class DashboardComponent implements OnInit {
     this.createdTask.dateEnd = new Date(date);
   }
 
-  createNewTask() : void {
+  onChange(task: Task) {
+    this.tasksService.updateTask(task);
+  }
+
+  createNewTask(): void {
+    this.tasksService.createTask(this.createdTask);
     this.taskList.push(this.createdTask);
     this.resetTaskForm();
-    this.router.navigateByUrl("/home/dashboard");
+    this.viewportScroller.scrollToAnchor("TaskBoard-all");
   }
 
   resetTaskForm(): void {
-    this.createdTask = new Task("", "", new Date(), new Date(), "Planned", 0);
+    this.createdTask = new Task("", "", "", new Date(), new Date(), "Planned", 0);
   }
 }

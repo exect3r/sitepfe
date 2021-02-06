@@ -29,6 +29,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
 import { EditTaskModalPopupComponent } from './edit-task-modal-popup/edit-task-modal-popup.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

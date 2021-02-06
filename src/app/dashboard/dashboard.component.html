@@ -266,4 +266,4 @@
     </div>
 </div>
 
-<app-edit-task-modal-popup [task]="selectedTask" (taskDelete)="deleteTask($event)"></app-edit-task-modal-popup>
+<app-edit-task-modal-popup [task]="selectedTask" (taskChanged)="onChange($event)" (taskDelete)="deleteTask($event)"></app-edit-task-modal-popup>

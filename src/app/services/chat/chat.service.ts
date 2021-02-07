@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 
@@ -6,7 +7,8 @@ import { Socket } from 'ngx-socket-io';
 })
 export class ChatService {
 
-  constructor(private socket: Socket) { 
+  baseUrl = 'http://localhost:3000/chat'
+  constructor(private socket: Socket, private http: HttpClient) { 
 
   }
 
@@ -22,11 +24,20 @@ export class ChatService {
     return this.socket.fromEvent('users');
   }
 
-  joinRoom(room){
-    this.socket.emit('joinRoom',room);
+  joinRoom(payload: any){
+    this.socket.emit('joinRoom',payload);
   }
 
-  LeaveRoom(room){
+  LeaveRoom(room: string){
+    console.log(room)
     this.socket.emit('leaveRoom',room);
+  }
+
+  receiveRoom(){
+    return this.socket.fromEvent('roomJoined');
+  }
+
+  getMessages(user1:string, user2:string){
+    return this.http.post(this.baseUrl+'/messages', {user1: user1, user2:user2});
   }
 }

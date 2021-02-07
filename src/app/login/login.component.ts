@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
       }else{
         sessionStorage.setItem('token', response.access_token);
       }
+      localStorage.setItem('email',this.model.username)
       this.router.navigate(['/home']);
       
     },

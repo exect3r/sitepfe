@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: "staff", component: StaffComponent },
       { path: "students", component: StudentsComponent },
       { path: "departments", component: DepartmentsComponent },
-      { path: "app-chat/:email", component: ChatAppComponent },
+      { path: "app-chat/:email/:name", component: ChatAppComponent },
       { path: "calender", component: CalenderComponent },
       { path: "app-filemanager", component: FileManagerComponent },
       { path: "staff", component: StaffComponent }

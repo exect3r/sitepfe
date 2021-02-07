@@ -15,6 +15,6 @@ export class AuthService {
   }
 
   register(user: User){
-    return this.http.post<any>(this.baseUrl+'/register',user);
+    return this.http.post<any>('http://localhost:3000/users'+'/addStudent',{name:user.firstname,lastname:user.lastname,password:user.password, email:user.email});
   }
 }

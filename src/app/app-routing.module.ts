@@ -13,13 +13,22 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfessorDashboardComponent } from './professor-dashboard/professor-dashboard.component';
-
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
+import { AdminProfessorComponent } from './Admin/admin-professor/admin-professor.component';
+import { AdminStudentComponent } from './Admin/admin-student/admin-student.component';
+import { AdminStaffComponent } from './Admin/admin-staff/admin-staff.component';
+import { AdminDepartmentsComponent } from './Admin/admin-departments/admin-departments.component';
+import { AuthGuard } from './guards/auth.guard';
+import { PfesComponent } from './pfes/pfes.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
-  { path: "home" ,
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'logout', component: LoginComponent, canActivate: [AuthGuard]},
+  {
+    path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
       { path: "dashboard", component: DashboardComponent },
@@ -31,15 +40,28 @@ const routes: Routes = [
       { path: "app-chat/:email/:name", component: ChatAppComponent },
       { path: "calender", component: CalenderComponent },
       { path: "app-filemanager", component: FileManagerComponent },
-      { path: "staff", component: StaffComponent }
+      { path: "staff", component: StaffComponent },
+      { path: "pfes", component: PfesComponent }
+    ],
+  },
+  {
+    path: 'admin',
+    component: HomeComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: AdminDashboardComponent },
+      { path: 'professors', component: AdminProfessorComponent },
+      { path: 'staff', component: AdminStaffComponent },
+      { path: 'students', component: AdminStudentComponent },
+      { path: 'departments', component: AdminDepartmentsComponent },
     ]
   },
-  { path: "404", component: NotFoundComponent },
-  { path: "**", redirectTo: "/404" }
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

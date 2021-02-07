@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { ScriptService } from '../script.service'
 @Component({
   selector: 'app-main-leftbar',
   templateUrl: './main-leftbar.component.html',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLeftbarComponent implements OnInit {
 
-  constructor() { }
+   status: string = "home" ;
 
-  ngOnInit(): void {
-  }
+  constructor(private script: ScriptService) { }
+
+
+  getURL(uri : string ) {
+    return ['/'+this.status+'/'+uri];
+}
+
+
+ngOnInit(): void {
+  this.script.load("core")
+}
+
 
 }

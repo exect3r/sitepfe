@@ -12,4 +12,8 @@ export class ProfessorsService {
   getProfessors(){
     return this.httpclient.get(this.baseUrl+'/professors');
   }
+
+  getProfessorById(id: string) {
+    return this.httpclient.get(this.baseUrl + '/professors/' + id);
+  }
 }

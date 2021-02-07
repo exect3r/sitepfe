@@ -12,11 +12,12 @@ export class EditTaskModalPopupComponent implements OnInit {
   task: Task
 
   @Output() taskDelete: EventEmitter<any> = new EventEmitter();
+  @Output() taskChanged: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
-    this.task = new Task("none", "none", new Date(), new Date(), "none", 0);
+    this.task = new Task(null, "none", "none", new Date(), new Date(), "none", 0);
   }
 
   onValueSelected(value: string): void {

@@ -1,0 +1,46 @@
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center ">
+            <div class="header-action">
+                <h1 class="page-title">Departments</h1>
+                <ol class="breadcrumb page-breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">PFE Insat</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Departments</li>
+                </ol>
+            </div>
+            <ul class="nav nav-tabs page-header-tab">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#Dep-all">List View</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section-body mt-4">
+    <div class="container-fluid">
+        <div class="tab-content">
+            <div class="tab-pane active" id="Dep-all">
+                <div class="table-responsive">
+                    <div class="table-responsive card">
+                        <table class="table table-hover table-striped table-vcenter text-nowrap mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Student</th>
+                                    <th>Supervisor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pfe of pfes">
+                                    <td>{{pfe.name}}</td>
+                                    <td>{{pfe.description}}</td>
+                                    <td>{{pfe.student}}</td>
+                                    <td>{{pfe.supervisor}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

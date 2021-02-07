@@ -9,34 +9,34 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Name</label>
-                            <input class="form-control" name="task-name" type="text" [value]="task.name" (change)="task.name = $event.target.value" />
+                            <input class="form-control" name="task-name" type="text" [value]="task.name" (change)="task.name = $event.target.value; taskChanged.emit(task);" />
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Description</label>
-                            <input class="form-control" name="task-desc" type="text" [value]="task.description" (change)="task.description = $event.target.value" />
+                            <input class="form-control" name="task-desc" type="text" [value]="task.description" (change)="task.description = $event.target.value; taskChanged.emit(task);" />
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Start Date</label>
-                            <input class="form-control" name="task-start" type="date" [value]="task.dateStart | date:'y-MM-dd'" (change)="onStartDateChanged($event.target.value)">
+                            <input class="form-control" name="task-start" type="date" [value]="task.dateStart | date:'y-MM-dd'" (change)="onStartDateChanged($event.target.value); taskChanged.emit(task);">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>End Date</label>
-                            <input class="form-control" name="task-end" type="date" [value]="task.dateEnd | date:'y-MM-dd'" (change)="onEndDateChanged($event.target.value)">
+                            <input class="form-control" name="task-end" type="date" [value]="task.dateEnd | date:'y-MM-dd'" (change)="onEndDateChanged($event.target.value); taskChanged.emit(task);">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Status</label>
-                            <select name="task-status" class="form-control" (change)="onValueSelected($event.target.value)">
-                                <option [selected]="task.status == 'Planned' ? 'true' : 'false'" value="Planned">Planned</option>
-                                <option [selected]="task.status == 'Completed' ? 'true' : 'false'" value="Completed">Completed</option>
-                                <option [selected]="task.status == 'In Progress' ? 'true' : 'false'" value="In Progress">In Progress</option>
+                            <select name="task-status" class="form-control" (change)="onValueSelected($event.target.value); taskChanged.emit(task);">
+                                <option [selected]="task.status == 'Planned' ? true : false" value="Planned">Planned</option>
+                                <option [selected]="task.status == 'In Progress' ? true : false" value="In Progress">In Progress</option>
+                                <option [selected]="task.status == 'Completed' ? true : false" value="Completed">Completed</option>
                             </select>
                         </div>
                     </div>
@@ -44,7 +44,14 @@
                         <div class="form-group">
                             <label>Progress</label>
                             <div class="slidecontainer">
-                                <input type="range" min="1" max="100" value="50" class="slider" (change)="task.progress = $event.target.value">
+                                <input type="range" min="1" max="100" style="background-size: {{ task.progress }}% 100%;" [value]="task.progress" class="progress-bar bg-azure" oninput="
+                                    var min = this.min,
+                                        max = this.max,
+                                        val = this.value;
+                                    
+                                    $(this).css({
+                                        'backgroundSize': (val - min) * 100 / (max - min) + '% 100%'
+                                    });" (change)="task.progress = +($event.target.value); taskChanged.emit(task);">
                             </div>
                         </div>
                     </div>

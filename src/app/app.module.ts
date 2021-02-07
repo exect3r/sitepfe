@@ -35,13 +35,15 @@ import { AdminStaffComponent } from './Admin/admin-staff/admin-staff.component';
 import { AdminDepartmentsComponent } from './Admin/admin-departments/admin-departments.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {}};
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { PfesComponent } from './pfes/pfes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminProfessorComponent,
     AdminStudentComponent,
     AdminStaffComponent,
-    AdminDepartmentsComponent
+    AdminDepartmentsComponent,
+    PfesComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

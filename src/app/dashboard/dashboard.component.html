@@ -24,9 +24,10 @@
         <div class="tab-content">
             <div class="tab-pane active" id="TaskBoard-all">
                 <div class="row my-8">
-                    <div class="col-6 mb-4">
-                        <p class="h3">{{ pfe.name }}</p>
-                        <p class="h5">{{ pfe.description }}</p>
+                    <div class="col-12 mb-4">
+                        <p class="h3"><i>{{ pfe.name }}</i></p>
+                        <p class="h8"><i>by {{ student.name }}</i></p>
+                        <p >{{ pfe.description }}</p>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -69,9 +70,10 @@
             </div>
             <div class="tab-pane" id="TaskBoard-Scrum">
                 <div class="row my-8">
-                    <div class="col-6 mb-4">
-                        <p class="h3">{{ pfe.name }}</p>
-                        <p class="h5">{{ pfe.description }}</p>
+                    <div class="col-12 mb-4">
+                        <p class="h3"><i>{{ pfe.name }}</i></p>
+                        <p class="h8"><i>by {{ student.name }}</i></p>
+                        <p >{{ pfe.description }}</p>
                     </div>
                 </div>
                 <div class="row clearfix">
@@ -79,35 +81,6 @@
                         <div class="card planned_task">
                             <div class="card-header">
                                 <h3 class="card-title">Planned</h3>
-                                <div class="card-options">
-                                    <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
-                                            class="fe fe-chevron-up"></i></a>
-                                    <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i
-                                            class="fe fe-maximize"></i></a>
-                                    <a href="#" class="card-options-remove" data-toggle="card-remove"><i
-                                            class="fe fe-x"></i></a>
-                                    <div class="item-action dropdown ml-2">
-                                        <a href="javascript:void(0)" data-toggle="dropdown"><i
-                                                class="fe fe-more-vertical"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-eye"></i> View Details </a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-cloud-download"></i> Download</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-folder"></i> Move to</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-edit"></i> Rename</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-trash"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="dd" data-plugin="nestable">
@@ -129,35 +102,6 @@
                         <div class="card progress_task">
                             <div class="card-header">
                                 <h3 class="card-title">In progress</h3>
-                                <div class="card-options">
-                                    <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
-                                            class="fe fe-chevron-up"></i></a>
-                                    <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i
-                                            class="fe fe-maximize"></i></a>
-                                    <a href="#" class="card-options-remove" data-toggle="card-remove"><i
-                                            class="fe fe-x"></i></a>
-                                    <div class="item-action dropdown ml-2">
-                                        <a href="javascript:void(0)" data-toggle="dropdown"><i
-                                                class="fe fe-more-vertical"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-eye"></i> View Details </a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-cloud-download"></i> Download</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-folder"></i> Move to</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-edit"></i> Rename</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-trash"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="dd" data-plugin="nestable">
@@ -179,35 +123,6 @@
                         <div class="card completed_task">
                             <div class="card-header">
                                 <h3 class="card-title">Completed</h3>
-                                <div class="card-options">
-                                    <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
-                                            class="fe fe-chevron-up"></i></a>
-                                    <a href="#" class="card-options-fullscreen" data-toggle="card-fullscreen"><i
-                                            class="fe fe-maximize"></i></a>
-                                    <a href="#" class="card-options-remove" data-toggle="card-remove"><i
-                                            class="fe fe-x"></i></a>
-                                    <div class="item-action dropdown ml-2">
-                                        <a href="javascript:void(0)" data-toggle="dropdown"><i
-                                                class="fe fe-more-vertical"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-eye"></i> View Details </a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-cloud-download"></i> Download</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-copy"></i> Copy to</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-folder"></i> Move to</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-edit"></i> Rename</a>
-                                            <a href="javascript:void(0)" class="dropdown-item"><i
-                                                    class="dropdown-icon fa fa-trash"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="card-body">
                                 <div class="dd" data-plugin="nestable">
@@ -227,9 +142,10 @@
             </div>
             <div class="tab-pane" id="TaskBoard-add">
                 <div class="row my-8">
-                    <div class="col-6 mb-4">
-                        <p class="h3">{{ pfe.name }}</p>
-                        <p class="h5">{{ pfe.description }}</p>
+                    <div class="col-12 mb-4">
+                        <p class="h3"><i>{{ pfe.name }}</i></p>
+                        <p class="h8"><i>by {{ student.name }}</i></p>
+                        <p >{{ pfe.description }}</p>
                     </div>
                 </div>
                 <div class="card">

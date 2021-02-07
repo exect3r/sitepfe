@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Professor } from 'src/app/models/professors' ; 
+import { ProfessorsService } from '../services/professors/professors.service';
 
 @Component({
   selector: 'app-professor',
@@ -9,13 +10,12 @@ import { Professor } from 'src/app/models/professors' ;
 export class ProfessorComponent implements OnInit {
 
   professors : Professor[] = [];
-  constructor() { }
+  constructor(private professorsService: ProfessorsService) { }
 
   ngOnInit(): void {
-    this.professors = [
-      new Professor(0,'robanna','robanna@insat.com',123456,'info','fulltime',[]),
-      new Professor(1,'sellaouti','sellaouti@insat.com',123,'info','associate',[])
-    ]
+    this.professorsService.getProfessors().subscribe((res: Professor[]) => {
+     this.professors = res
+    })
   }
 
 }

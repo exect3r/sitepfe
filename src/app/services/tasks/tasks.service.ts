@@ -26,7 +26,7 @@ export class TasksService {
   }
 
   createTask(task: Task) : Observable<Object> {
-    return this.http.post("http://localhost:3000/tasks/", task)
+    return this.http.post("http://localhost:3000/tasks/", task);
   }
 
   updateTask(task: Task) {

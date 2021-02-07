@@ -18,25 +18,30 @@ import { AdminProfessorComponent } from './Admin/admin-professor/admin-professor
 import { AdminStudentComponent } from './Admin/admin-student/admin-student.component';
 import { AdminStaffComponent } from './Admin/admin-staff/admin-staff.component';
 import { AdminDepartmentsComponent } from './Admin/admin-departments/admin-departments.component';
+import { AuthGuard } from './guards/auth.guard';
+import { PfesComponent } from './pfes/pfes.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
+  { path: 'logout', component: LoginComponent, canActivate: [AuthGuard]},
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'dashboard-professor', component: ProfessorDashboardComponent },
-      { path: 'professors', component: ProfessorComponent },
-      { path: 'staff', component: StaffComponent },
-      { path: 'students', component: StudentsComponent },
-      { path: 'departments', component: DepartmentsComponent },
-      { path: 'app-chat', component: ChatAppComponent },
-      { path: 'calender', component: CalenderComponent },
-      { path: 'app-filemanager', component: FileManagerComponent },
-      { path: 'staff', component: StaffComponent },
+      { path: "", redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: "dashboard", component: DashboardComponent },
+      { path: "dashboard-professor", component: ProfessorDashboardComponent },
+      { path: "professors", component: ProfessorComponent },
+      { path: "staff", component: StaffComponent },
+      { path: "students", component: StudentsComponent },
+      { path: "departments", component: DepartmentsComponent },
+      { path: "app-chat/:email", component: ChatAppComponent },
+      { path: "calender", component: CalenderComponent },
+      { path: "app-filemanager", component: FileManagerComponent },
+      { path: "staff", component: StaffComponent },
+      { path: "pfes", component: PfesComponent }
     ],
   },
   {
@@ -49,7 +54,7 @@ const routes: Routes = [
       { path: 'staff', component: AdminStaffComponent },
       { path: 'students', component: AdminStudentComponent },
       { path: 'departments', component: AdminDepartmentsComponent },
-    ],
+    ]
   },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '/404' },

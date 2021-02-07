@@ -34,9 +34,9 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select name="task-status" class="form-control" (change)="onValueSelected($event.target.value); taskChanged.emit(task);">
-                                <option [selected]="task.status == 'Planned' ? 'true' : 'false'" value="Planned">Planned</option>
-                                <option [selected]="task.status == 'Completed' ? 'true' : 'false'" value="Completed">Completed</option>
-                                <option [selected]="task.status == 'In Progress' ? 'true' : 'false'" value="In Progress">In Progress</option>
+                                <option [selected]="task.status == 'Planned' ? true : false" value="Planned">Planned</option>
+                                <option [selected]="task.status == 'In Progress' ? true : false" value="In Progress">In Progress</option>
+                                <option [selected]="task.status == 'Completed' ? true : false" value="Completed">Completed</option>
                             </select>
                         </div>
                     </div>

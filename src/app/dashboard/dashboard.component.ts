@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
 
     /// TODO: currently hardcoded, get current student id from session.
     this.pfeService.getPfeByStudent("601ee6e2fbe0e37af2708e2f").subscribe((v: Pfe) => {
-      console.log(v);
       this.pfe = v;
 
       this.tasksService.getTasksByPfe(this.pfe).subscribe((v: Task[]) => {
@@ -52,12 +51,14 @@ export class DashboardComponent implements OnInit {
   }
 
   showEditModal(task: Task): void {
+    console.log(task.status);
     this.selectedTask = task;
   }
 
   deleteTask(task: Task): void {
     delete this.pfe.tasks[task._id];
     this.tasksService.deleteTask(task);
+    this.pfe.tasks.splice(this.pfe.tasks.indexOf(task._id), 1);
     this.pfeService.updatePfe(this.pfe);
     this.taskList = this.taskList.filter(item => item != task);
   }
@@ -76,14 +77,15 @@ export class DashboardComponent implements OnInit {
 
   createNewTask(): void {
     this.tasksService.createTask(this.createdTask).subscribe((v: any) => {
-      console.log(v);
       this.pfe.tasks.push(v.id);
       this.pfeService.updatePfe(this.pfe);
+
+      this.tasksService.getTask(v.id).subscribe((v: any) => {
+        this.taskList.push(v);
+        this.resetTaskForm();
+        this.viewportScroller.scrollToAnchor("TaskBoard-all");
+      });
     });
-    
-    this.taskList.push(this.createdTask);
-    this.resetTaskForm();
-    this.viewportScroller.scrollToAnchor("TaskBoard-all");
   }
 
   resetTaskForm(): void {

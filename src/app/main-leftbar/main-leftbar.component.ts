@@ -7,7 +7,7 @@ import { ScriptService } from '../script.service'
 })
 export class MainLeftbarComponent implements OnInit {
 
-   status: string = "admin" ;
+   status: string = "home" ;
 
   constructor(private script: ScriptService) { }
 

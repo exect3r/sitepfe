@@ -6,20 +6,26 @@
                     <a class="header-brand" href="index.html"><i class="fa fa-graduation-cap brand-logo"></i></a>
                     <div class="card-title">Create new account</div>
                     <button type="button" class="btn btn-facebook"><i class="fa fa-facebook mr-2"></i>Facebook</button>
+                    <span style="padding: 1%;"></span>
                     <button type="button" class="btn btn-google"><i class="fa fa-google mr-2"></i>Google</button>
                     <h6 class="mt-3 mb-3">Or</h6>
                 </div>
+                <form (ngSubmit)="onSubmit()" #registerForm="ngForm"></form>
                 <div class="form-group">
-                    <label class="form-label">Name</label>
+                    <label class="form-label" [(ngModel)]="model.username" name="username">First Name</label>
                     <input type="text" class="form-control" placeholder="Enter name">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Email address</label>
-                    <input type="email" class="form-control" placeholder="Enter email">
+                    <label class="form-label" [(ngModel)]="model.username" name="username">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" >Email address</label>
+                    <input type="email" class="form-control" placeholder="Enter email" [(ngModel)]="model.email" name="email">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" [(ngModel)]="model.password" name="password">
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
@@ -28,7 +34,7 @@
                     </label>
                 </div>
                 <div class="text-center">
-                    <button [routerLink]="['/home']" type="submit" class="btn btn-primary btn-block">Create new account</button>
+                    <button type="submit" class="btn btn-primary btn-block">Create new account</button>
                     <div class="text-muted mt-4">Already have account? <a [routerLink]="['/login']">Sign in</a></div>
                 </div>
             </div>

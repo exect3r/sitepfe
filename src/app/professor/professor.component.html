@@ -45,7 +45,8 @@
                                 <td><span>{{prof.phone}}</span></td>
                                 <td><span class="text-muted">{{prof.department}}</span></td>
                                 <td>{{prof.email}}</td>
-                                <td><span class="tag tag-success">{{prof.position}}</span></td>
+                                <td><span class="tag ">{{prof.position}}</span></td>
+                                <td><button class="tag tag-success" [routerLink]="['/home/app-chat/', prof.email]">contact</button></td>
                             </tr>
                         </tbody>
                     </table>

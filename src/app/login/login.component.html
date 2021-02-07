@@ -6,26 +6,30 @@
                     <a class="header-brand" href="index.html"><i class="fa fa-graduation-cap brand-logo"></i></a>
                     <div class="card-title mt-3">Login to your account</div>
                     <button type="button" class="btn btn-facebook"><i class="fa fa-facebook mr-2"></i>Facebook</button>
+                    <span style="padding: 1%;"></span>
                     <button type="button" class="btn btn-google"><i class="fa fa-google mr-2"></i>Google</button>
                     <h6 class="mt-3 mb-3">Or</h6>
                 </div>
+                <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="model.username" name="username">
                 </div>
                 <div class="form-group">
                     <label class="form-label"><a href="forgot-password.html" class="float-right small">I forgot password</a></label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="model.password" name="password">
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" />
+                    <input type="checkbox" class="custom-control-input" (change)="check()">
                     <span class="custom-control-label">Remember me</span>
                     </label>
                 </div>
                 <div class="text-center">
-                    <a [routerLink]="['/home']" class="btn btn-primary btn-block" title="">Sign in</a>
+                    <div style="color: red;" [hidden]="wrong"> You have entered wrong credentials !</div>
+                    <button class="btn btn-primary btn-block" title="" type="submit" [disabled]="!loginForm.form.valid">Sign in</button>
                     <div class="text-muted mt-4">Don't have account yet? <a [routerLink]="['/register']">Sign up</a></div>
                 </div>
+            </form>
             </div>
         </div>        
     </div>

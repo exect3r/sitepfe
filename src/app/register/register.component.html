@@ -10,14 +10,14 @@
                     <button type="button" class="btn btn-google"><i class="fa fa-google mr-2"></i>Google</button>
                     <h6 class="mt-3 mb-3">Or</h6>
                 </div>
-                <form (ngSubmit)="onSubmit()" #registerForm="ngForm"></form>
+                <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
                 <div class="form-group">
-                    <label class="form-label" [(ngModel)]="model.username" name="username">First Name</label>
-                    <input type="text" class="form-control" placeholder="Enter name">
+                    <label class="form-label" >First Name</label>
+                    <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="model.firstname" name="firstname">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" [(ngModel)]="model.username" name="username">Last Name</label>
-                    <input type="text" class="form-control" placeholder="Enter name">
+                    <label class="form-label" >Last Name</label>
+                    <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="model.lastname" name="lastname">
                 </div>
                 <div class="form-group">
                     <label class="form-label" >Email address</label>
@@ -34,9 +34,10 @@
                     </label>
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-block">Create new account</button>
+                    <button type="submit" class="btn btn-primary btn-block" [disabled]="!registerForm.form.valid">Create new account</button>
                     <div class="text-muted mt-4">Already have account? <a [routerLink]="['/login']">Sign in</a></div>
                 </div>
+            </form>
             </div>
         </div>
     </div>
